@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="jaybird-default-datasource">
+    <dependencies>
+        <layer name="jaybird-datasource"/>
+    </dependencies>
+
+    <feature spec="subsystem.ee.service.default-bindings">
+        <param name="datasource" value="java:jboss/datasources/${env.OPENSHIFT_JAYBIRD_DATASOURCE,env.JAYBIRD_DATASOURCE,JAYBIRD_DATASOURCE:JaybirdDS}"/>
+    </feature>
+</layer-spec>

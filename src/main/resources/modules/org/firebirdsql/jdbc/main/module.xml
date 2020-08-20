@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.8" name="org.firebirdsql.jdbc">
+    <resources>
+        <artifact name="${org.firebirdsql.jdbc:jaybird}"/>
+        <artifact name="${org.antlr:antlr4-runtime}"/>
+    </resources>
+    <dependencies>
+        <module name="javax.api"/>
+        <module name="javax.transaction.api"/>
+        <module name="javax.resource.api"/>
+    </dependencies>
+</module>
