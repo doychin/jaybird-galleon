@@ -4,10 +4,6 @@
         <layer name="jaybird-driver"/>
     </dependencies>
 
-    <feature spec="subsystem.ee.service.default-bindings">
-        <param name="datasource" value="java:jboss/datasources/${env.OPENSHIFT_JAYBIRD_DATASOURCE,env.JAYBIRD_DATASOURCE,JAYBIRD_DATASOURCE:JaybirdDS}"/>
-    </feature>
-
     <feature spec="subsystem.datasources.data-source">
         <param name="use-ccm" value="true"/>
         <!-- we can't use expression for pool-name (data-source name) hard coding should be fine, the important thing is JNDI -->
@@ -15,7 +11,7 @@
         <param name="enabled" value="true"/>
         <param name="use-java-context" value="true"/>
         <param name="jndi-name" value="java:jboss/datasources/${env.OPENSHIFT_JAYBIRD_DATASOURCE,env.JAYBIRD_DATASOURCE,JAYBIRD_DATASOURCE:JaybirdDS}"/>
-        <param name="connection-url" value="jdbc:firebirdsql:${JAYBIRD_SERVICE_HOST,env.JAYBIRD_SERVICE_HOST,env.OPENSHIFT_JAYBIRD_DB_HOST}/${JAYBIRD_SERVICE_PORT,env.JAYBIRD_SERVICE_PORT,env.OPENSHIFT_JAYBIRD_DB_PORT:3050}:${JAYBIRD_DATABASE,env.JAYBIRD_DATABASE,env.OPENSHIFT_JAYBIRD_DB_NAME}"/>
+        <param name="connection-url" value="${JAYBIRD_URL,env.JAYBIRD_URL,jdbc:${JAYBIRD_MODE,env.JAYBIRD_MODE,env.OPENSHIFT_JAYBIRD_MODE:firebirdsql}:${JAYBIRD_SERVICE_HOST_PORT,env.JAYBIRD_SERVICE_HOST_PORT,env.OPENSHIFT_JAYBIRD_SERVICE_HOST_PORT:localhost}:${JAYBIRD_DATABASE,env.JAYBIRD_DATABASE,env.OPENSHIFT_JAYBIRD_DB_NAME}}"/>
         <param name="driver-name" value="jaybird"/>
         <param name="user-name" value="${JAYBIRD_USER,env.JAYBIRD_USER,env.OPENSHIFT_JAYBIRD_DB_USERNAME:sysdba}"/>
         <param name="password" value="${JAYBIRD_PASSWORD,env.JAYBIRD_PASSWORD,env.OPENSHIFT_JAYBIRD_DB_PASSWORD:masterkey}"/>
