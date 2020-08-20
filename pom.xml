@@ -52,7 +52,7 @@
                 <version>${version.org.wildfly.galleon-plugins}</version>
                 <executions>
                     <execution>
-                        <id>wildfly-datasources-galleon-pack-build</id>
+                        <id>jaybird-datasources-galleon-pack-build</id>
                         <goals>
                             <goal>build-user-feature-pack</goal>
                         </goals>
